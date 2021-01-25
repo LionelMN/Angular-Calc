@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angularcalculator": {
+    "angularcrud": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angularcalculator",
+            "outputPath": "dist/angularcrud",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angularcalculator:build"
+            "browserTarget": "angularcrud:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angularcalculator:build:production"
+              "browserTarget": "angularcrud:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angularcalculator:build"
+            "browserTarget": "angularcrud:build"
           }
         },
         "test": {
@@ -110,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angularcalculator:serve"
+            "devServerTarget": "angularcrud:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angularcalculator:serve:production"
+              "devServerTarget": "angularcrud:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "angularcalculator"
+  "defaultProject": "angularcrud"
 }
