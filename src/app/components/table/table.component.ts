@@ -1,24 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ItemsService } from '../../services/items/items.service';
 
-interface item {id:number, img:string, name:string, last:number, total:number}
+interface item {_id:number, img:string, name:string, last:number, total:number};
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+  parseNumber = (n:any):number | null => !n ? 0 : Number(n)
 
-  items: item[] =
-  [
-    {img:"osbf", name:"a", last:1, total:2, id:1},
-    {img:"qwe", name:"b", last:2, total:2, id:2},
-    {img:"rty", name:"c", last:4, total:5, id:3},
-  ]
-  constructor() { }
+  items: item[]
+  constructor(private itemsService : ItemsService) { }
 
-  faEdit = faEdit;
-  faTrash = faTrash;
+  public getAll(){
+    this.itemsService.getAll().subscribe(bdItems => this.items = bdItems)
+  }
 
   editRow(id){
     alert(`edit button of ${id}`)
@@ -29,6 +27,7 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAll()
   }
 
 }
