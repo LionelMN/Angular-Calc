@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, Inject } from '@angular/core';
+import { faPlus, faMinus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ItemsService } from '../../services/items/items.service';
+import { DOCUMENT } from '@angular/common';
 
 interface item {_id:number, img:string, name:string, last:number, total:number};
 @Component({
@@ -9,21 +10,71 @@ interface item {_id:number, img:string, name:string, last:number, total:number};
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  parseNumber = (n:any):number | null => !n ? 0 : Number(n)
+
+  faPlus = faPlus;
+  faMinus = faMinus;
+  faEdit = faEdit;
+  faTrash = faTrash;
 
   items: item[]
-  constructor(private itemsService : ItemsService) { }
+  constructor(
+    private itemsService : ItemsService,
+    @Inject(DOCUMENT) private document: Document
+  ) { }
 
   public getAll(){
     this.itemsService.getAll().subscribe(bdItems => this.items = bdItems)
   }
 
-  editRow(id){
-    alert(`edit button of ${id}`)
+  plus(item : item, column : string) : void{
+    if (column === 'last'){
+      if (item.last < item.total){
+        item.last ++
+      } else {
+        item.last ++;
+        item.total ++;
+      }
+    } else {
+      item.total = item.total + 1;
+    }
+    this.editRow(item)
   }
 
-  deleteRow(id ){
-    alert(`delete button of ${id}`)
+  minus(item : item, column : string) : void{
+    if (column === 'last'){
+      if (item.last > 0){
+        item.last --
+      }
+    } else {
+      if (item.total > 0){
+        if (item.total > item.last){
+          item.total --;
+        } else {
+          item.total --;
+          item.last --;
+        }
+      }
+    }
+    this.editRow(item)
+  }
+
+  validateName(name:string, item:item){
+    if (name){
+      item.name = name
+      this.editRow(item)
+    }
+  }
+
+  editRow(item : item){
+    this.itemsService.edit(item).subscribe()
+    console.log(item);
+
+  }
+
+  deleteRow(name : string){
+    this.itemsService.remove(name).subscribe( () => {
+      this.document.location.reload();
+    });
   }
 
   ngOnInit(): void {

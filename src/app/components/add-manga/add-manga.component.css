@@ -1,0 +1,106 @@
+
+.button{
+  position: relative;
+  top: 4%;
+  left: 92%;
+  height: 50px;
+  width: 50px;
+  border: 0.2rem solid var(--third-bg-color);
+  border-radius: 100%;
+  background-color: var(--text-color);
+  color: var(--third-bg-color);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+
+.form{
+  color: var(--text-color);
+  bottom: 45%;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 3rem repeat(auto-fit, minmax(2rem, 4rem));
+  grid-template-columns: 100%;
+  transition: 1s;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.table-caption{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  justify-content: center;
+  align-items: center;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  background: var(--third-bg-color);
+}
+
+.caption{
+  text-align: center;
+}
+
+.table-row{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  justify-content: center;
+  align-items: center;
+  font-family: 'Merriweather', serif;
+}
+
+.table-row:nth-child(even){
+  background: var(--first-bg-color);
+}
+
+.table-row:nth-child(odd){
+  background: var(--second-bg-color);
+}
+
+.column{
+  text-align: center;
+  height: 48px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.column input{
+  font-size: 1rem;
+  background: transparent;
+  outline: none;
+  border: none;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.btn-send {
+  color: var(--text-color);
+  background: transparent;
+  outline: none;
+  border: none;
+  transition: 1s
+}
+
+.btn-send:disabled{
+  opacity: 0.5;
+}
+
+.alert-danger{
+  background: var(--text-color);
+  color: var(--third-bg-color);
+  width: 13rem;
+  position: absolute;
+  bottom: 45%;
+  left: 22%;
+  text-align: center;
+  opacity: 0.7;
+}

@@ -1,0 +1,27 @@
+<div class="button" (click)="showForm()">
+  <fa-icon class="icon" [icon]="faPlus"></fa-icon>
+</div>
+
+<!-- *ngIf="isHidden === false" -->
+<div class="form" [ngClass]="{'hidden': isHidden === true}">
+  <div class="table-caption">
+    <span class="caption">Imagen</span>
+    <span class="caption">Manga</span>
+    <span class="caption">Último tomo comprado</span>
+    <span class="caption">Total de tomos</span>
+    <span class="caption">Guardar</span>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="mangaForm" class="table-row" (ngSubmit)="onSaveForm()">
+      <div class="column"><input type="text" formControlName="img" placeholder="Imagen del manga"></div>
+      <div class="column"><input type="text" formControlName="name" placeholder="Nombre del manga"></div>
+      <div class="column"><input type="number" formControlName="last" placeholder="Último tomo comprado" min="0"></div>
+      <div class="column"><input type="number" formControlName="total" placeholder="Total de tomos" min="0"></div>
+      <div class="column"><button type="submit" class="btn-send" [disabled]="!mangaForm.valid"><fa-icon class="icon" [icon]="faEdit"></fa-icon></button></div>
+    </form>
+  </div>
+  <div class="alert-danger" *ngIf="name.invalid &&  (name.dirty || name.touched)">
+    <div class="container-error-message" *ngIf="name.errors.required">Nombre requerido</div>
+    <div class="container-error-message" *ngIf="name.errors.minlength">Mínimo</div>
+  </div>
+</div>

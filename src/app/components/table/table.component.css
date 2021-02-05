@@ -51,10 +51,66 @@ span{
 
 .column{
   text-align: center;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.column input{
+  font-size: 1rem;
+  background: transparent;
+  outline: none;
+  border: none;
+  text-align: center;
+}
+
+.column:nth-child(2){
+  row-gap: 0.2rem;
+  margin-top: 20px;
+}
+
+.column:nth-child(2)::after{
+  font-size: 0.6rem;
+  content: "click to edit";
+  display: block;
+  position: relative;
+  bottom: 0;
+  transform: scale(0);
+  transition: 0.4s;
+}
+
+.column:nth-child(2):hover::after{
+  transform: scale(1);
+}
+
+.tomes{
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+}
+
+.icon{
+  transform: scale(0);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.tomes:hover .icon{
+  transform: scale(1);
+}
+
+.icon2 *{
+  height: 100%;
+  width: 25px;
+  cursor: pointer;
 }
 
 .svg-inline--fa{
   height: 100%;
   width: 25px;
   cursor: pointer;
+}
+
+app-add-manga{
+  margin-top: 1rem;
 }
