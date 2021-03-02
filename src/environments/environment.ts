@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backUrl: 'http://192.168.0.34:5000',
+  backUrl: 'http://192.168.0.29:5000',
 };
 
 /*

@@ -111,6 +111,10 @@ span{
   cursor: pointer;
 }
 
+.fa-trash:hover path{
+  fill: var(--third-bg-color);
+}
+
 app-add-manga{
   margin-top: 1rem;
 }
