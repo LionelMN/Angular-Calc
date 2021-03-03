@@ -24,7 +24,7 @@ span{
   justify-content: center;
   align-items: center;
   font-family: 'Fira Sans', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   background: var(--third-bg-color);
 }
 
@@ -51,10 +51,6 @@ span{
 
 .column{
   text-align: center;
-  height: 100%;
-  display: grid;
-  justify-content: center;
-  align-content: center;
 }
 
 .column input{
@@ -63,19 +59,23 @@ span{
   outline: none;
   border: none;
   text-align: center;
+  font-family: 'Merriweather';
+}
+
+.column:first-child{
+  margin-top: 5px;
 }
 
 .column:nth-child(2){
-  row-gap: 0.2rem;
   margin-top: 20px;
 }
 
 .column:nth-child(2)::after{
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   content: "click to edit";
   display: block;
   position: relative;
-  bottom: 0;
+  bottom: -5px;
   transform: scale(0);
   transition: 0.4s;
 }
@@ -86,7 +86,8 @@ span{
 
 .tomes{
   display: grid;
-  grid-template-columns: repeat(3, 33%);
+  grid-template-columns: repeat(3, 33.33%);
+  align-items: center;
 }
 
 .icon{
@@ -113,6 +114,11 @@ span{
 
 .fa-trash:hover path{
   fill: var(--third-bg-color);
+}
+
+.img{
+  width: 100px;
+  height: 150px;
 }
 
 app-add-manga{

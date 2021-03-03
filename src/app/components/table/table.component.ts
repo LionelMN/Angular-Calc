@@ -11,6 +11,8 @@ interface item {_id:number, img:string, name:string, last:number, total:number};
 })
 export class TableComponent implements OnInit {
 
+  isContentLoaded : boolean = false;
+
   faPlus = faPlus;
   faMinus = faMinus;
   faEdit = faEdit;
@@ -23,7 +25,10 @@ export class TableComponent implements OnInit {
   ) { }
 
   public getAll(){
-    this.itemsService.getAll().subscribe(bdItems => this.items = bdItems)
+    this.itemsService.getAll().subscribe(bdItems => {
+      this.items = bdItems
+      this.isContentLoaded = true;
+    })
   }
 
   plus(item : item, column : string) : void{

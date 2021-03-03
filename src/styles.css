@@ -13,3 +13,7 @@
   --second-bg-color: #30475e;
   --third-bg-color: #f05454;
 }
+
+body{
+  background-color: var(--first-bg-color);
+}

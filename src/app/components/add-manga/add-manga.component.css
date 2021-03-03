@@ -85,6 +85,7 @@
 .btn-send {
   color: var(--text-color);
   background: transparent;
+  font-size: 1.5rem;
   outline: none;
   border: none;
   transition: 1s
@@ -95,12 +96,18 @@
 }
 
 .alert-danger{
+  text-align: center;
   background: var(--text-color);
   color: var(--third-bg-color);
   width: 13rem;
-  position: absolute;
-  bottom: 45%;
-  left: 22%;
-  text-align: center;
   opacity: 0.7;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+  transition: 1s;
+}
+
+.preview-image{
+  width: 100px;
+  height: 150px;
+  margin: 0 9rem;
 }

@@ -1,0 +1,10 @@
+.spinner{
+  width: 100px;
+  height: 100px;
+  animation: spin 4s linear infinite ;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

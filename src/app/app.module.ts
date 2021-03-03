@@ -7,12 +7,14 @@ import { TableComponent } from './components/table/table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AddMangaComponent } from './components/add-manga/add-manga.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    AddMangaComponent
+    AddMangaComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

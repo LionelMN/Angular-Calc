@@ -45,22 +45,37 @@ export class AddMangaComponent implements OnInit {
     if (this.mangaForm.valid){
       if(!this.mangaForm.value.img){
         this.mangaForm.value.img = 'default.png'
+      } else {
+        this.mangaForm.value.img = this.aux
       }
       this.itemsService.create(this.mangaForm.value).subscribe();
       this.onResetForm();
+      console.log(this.mangaForm.value)
       this.document.location.reload();
     } else {
       console.log('Not valid');
-
     }
   }
 
   get name(){ return this.mangaForm.get('name'); }
-  get last(){ return this.mangaForm.get('last'); }
-  get total(){ return this.mangaForm.get('total'); }
 
   showForm(){
     this.isHidden = !this.isHidden
+  }
+
+  url : string
+  aux : string
+
+  onSelectFile(e){
+    if(e.target.files){
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      this.aux = e.target.files[0].name;
+      console.log(e.target.files[0].name)
+      reader.onload = (event:any)=> {
+        this.url = event.target.result;
+      }
+    }
   }
 
 }

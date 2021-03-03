@@ -13,7 +13,7 @@
   </div>
   <div class="form-container">
     <form [formGroup]="mangaForm" class="table-row" (ngSubmit)="onSaveForm()">
-      <div class="column"><input type="text" formControlName="img" placeholder="Imagen del manga"></div>
+      <div class="column"><input type="file" (change)='onSelectFile($event)' formControlName="img" placeholder="Imagen del manga"></div>
       <div class="column"><input type="text" formControlName="name" placeholder="Nombre del manga"></div>
       <div class="column"><input type="number" formControlName="last" placeholder="Último tomo comprado" min="0"></div>
       <div class="column"><input type="number" formControlName="total" placeholder="Total de tomos" min="0"></div>
@@ -25,3 +25,5 @@
     <div class="container-error-message" *ngIf="name.errors.minlength">Mínimo</div>
   </div>
 </div>
+
+<img *ngIf="url" [src]="url" alt="" class="preview-image">
